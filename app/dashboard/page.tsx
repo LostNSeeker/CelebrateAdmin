@@ -19,7 +19,15 @@ const data = [
 ];
 
 // Custom axis components to avoid defaultProps warnings
-const CustomXAxis = ({ x, y, payload }) => (
+interface AxisProps {
+  x: number;
+  y: number;
+  payload: {
+    value: string | number;
+  };
+}
+
+const CustomXAxis = ({ x, y, payload }: AxisProps) => (
   <g transform={`translate(${x},${y})`}>
     <text
       x={0}
@@ -34,7 +42,7 @@ const CustomXAxis = ({ x, y, payload }) => (
   </g>
 );
 
-const CustomYAxis = ({ x, y, payload }) => (
+const CustomYAxis = ({ x, y, payload }: AxisProps) => (
   <g transform={`translate(${x},${y})`}>
     <text
       x={-10}
